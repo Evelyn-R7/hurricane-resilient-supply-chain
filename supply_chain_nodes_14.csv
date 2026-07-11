@@ -1,0 +1,15 @@
+﻿node_id,node_name,node_type,node_latitude,node_longitude,coastal
+N1,Houston,Port,29.7604,-95.3698,1
+N2,New Orleans,Port,29.9511,-90.0715,1
+N3,Miami,Market,25.7617,-80.1918,1
+N4,Orlando,Warehouse,28.5383,-81.3792,0
+N5,Atlanta,Warehouse,33.749,-84.388,0
+N6,Dallas,Supplier,32.7767,-96.797,0
+N7,Tampa,Market,27.9506,-82.4572,1
+N8,Jacksonville,Port,30.3322,-81.6557,1
+N9,Mobile,Port,30.6954,-88.0399,1
+N10,Savannah,Port,32.0809,-81.0912,1
+N11,Charleston,Port,32.7765,-79.9311,1
+N12,Corpus Christi,Port,27.8006,-97.3964,1
+N13,Baton Rouge,Warehouse,30.4515,-91.1871,0
+N14,Charlotte,Warehouse,35.2271,-80.8431,0

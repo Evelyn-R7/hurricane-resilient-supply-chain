@@ -1,0 +1,14 @@
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.DS_Store
+.vscode/
+.idea/
+outputs_01_ml_pipeline/
+outputs_02_optimization/
+outputs_03_supplementary/
+outputs_04_conference_revision/
+ibtracs_NA.csv

@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite this research project and the underlying NOAA/NCEI IBTrACS dataset described in DATA_SOURCES.md."
+title: "Do Complex Machine-Learning Risk Models Improve Hurricane-Resilient Supply Chain Design?"
+type: software
+authors:
+  - family-names: Zhao
+    given-names: Xiaorui
+version: 1.0.0
+date-released: 2026-07-11
+abstract: >-
+  A comparative decision study combining hurricane exposure modeling,
+  scenario reduction, and two-stage CVaR supply-chain network design.
+keywords:
+  - supply chain resilience
+  - hurricane risk
+  - stochastic optimization
+  - CVaR
+  - machine learning
+  - scenario reduction

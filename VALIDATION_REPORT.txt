@@ -1,0 +1,18 @@
+[ OK ] Required file present: README.md
+[ OK ] Required file present: DATA_SOURCES.md
+[ OK ] Required file present: REPRODUCIBILITY.md
+[ OK ] Required file present: requirements.txt
+[ OK ] Required file present: .gitignore
+[ OK ] Required file present: 01_data_and_ml_pipeline.ipynb
+[ OK ] Required file present: 02_optimization_and_evaluation.ipynb
+[ OK ] Required file present: 03_robustness_and_sensitivity.ipynb
+[ OK ] Required file present: 04_interpretable_baselines_and_scenario_checks.ipynb
+[ OK ] Required file present: results/figures/full464_cost_cvar_tradeoff.png
+[ OK ] Required file present: results/tables/conference_full464_summary.csv
+[ OK ] Forbidden raw file absent: ibtracs_NA.csv
+[ OK ] Notebook JSON and code syntax valid: 01_data_and_ml_pipeline.ipynb (41 code cells)
+[ OK ] Notebook JSON and code syntax valid: 02_optimization_and_evaluation.ipynb (30 code cells)
+[ OK ] Notebook JSON and code syntax valid: 03_robustness_and_sensitivity.ipynb (19 code cells)
+[ OK ] Notebook JSON and code syntax valid: 04_interpretable_baselines_and_scenario_checks.ipynb (2 code cells)
+
+Repository validation passed.

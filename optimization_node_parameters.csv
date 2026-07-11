@@ -1,0 +1,15 @@
+﻿node_id,node_name,role,fixed_cost,capacity,supply,demand,latitude,longitude
+N1,Houston,source,0,900,900,0,29.7604,-95.3698
+N2,New Orleans,market,0,0,0,420,29.9511,-90.0715
+N3,Miami,market,0,0,0,520,25.7617,-80.1918
+N4,Orlando,dc,1800,780,0,0,28.5383,-81.3792
+N5,Atlanta,dc,2100,1000,0,0,33.749,-84.388
+N6,Dallas,source,0,1100,1100,0,32.7767,-96.797
+N7,Tampa,market,0,0,0,380,27.9506,-82.4572
+N8,Jacksonville,dc,1600,700,0,0,30.3322,-81.6557
+N9,Mobile,source,0,650,650,0,30.6954,-88.0399
+N10,Savannah,market,0,0,0,300,32.0809,-81.0912
+N11,Charleston,market,0,0,0,280,32.7765,-79.9311
+N12,Corpus Christi,source,0,700,700,0,27.8006,-97.3964
+N13,Baton Rouge,dc,1300,620,0,0,30.4515,-91.1871
+N14,Charlotte,dc,1700,760,0,0,35.2271,-80.8431
