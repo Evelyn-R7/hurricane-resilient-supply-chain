@@ -19,10 +19,14 @@ REQUIRED_FILES = [
     "REPRODUCIBILITY.md",
     "requirements.txt",
     ".gitignore",
-    "01_data_and_ml_pipeline.ipynb",
-    "02_optimization_and_evaluation.ipynb",
-    "03_robustness_and_sensitivity.ipynb",
-    "04_interpretable_baselines_and_scenario_checks.ipynb",
+    "notebooks/01_data_and_ml_pipeline.ipynb",
+    "notebooks/02_optimization_and_evaluation.ipynb",
+    "notebooks/03_robustness_and_sensitivity.ipynb",
+    "notebooks/04_interpretable_baselines_and_scenario_checks.ipynb",
+    "src/hurricane_resilience/data.py",
+    "src/hurricane_resilience/evaluation.py",
+    "src/hurricane_resilience/optimization.py",
+    "scripts/run_full_pipeline.py",
     "results/figures/full464_cost_cvar_tradeoff.png",
     "results/tables/conference_full464_summary.csv",
 ]
@@ -63,7 +67,7 @@ def main() -> int:
         else:
             ok(f"Forbidden raw file absent: {rel}")
 
-    notebooks = sorted(ROOT.glob("*.ipynb"))
+    notebooks = sorted((ROOT / "notebooks").glob("*.ipynb"))
     for notebook_path in notebooks:
         try:
             notebook = json.loads(notebook_path.read_text(encoding="utf-8"))

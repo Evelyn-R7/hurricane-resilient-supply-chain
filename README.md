@@ -48,10 +48,10 @@ The broader conclusion is that the largest decision gain comes from moving beyon
 
 | File / folder | Purpose |
 |---|---|
-| `01_data_and_ml_pipeline.ipynb` | Event-node data construction, grouped cross-validation, calibration, scenario probabilities, and scenario reduction |
-| `02_optimization_and_evaluation.ipynb` | Two-stage stochastic CVaR model, Pareto designs, common evaluation, conference extensions, and full-scenario evaluation |
-| `03_robustness_and_sensitivity.ipynb` | Temporal holdout, threshold checks, scenario-reduction diagnostics, and parameter sensitivity |
-| `04_interpretable_baselines_and_scenario_checks.ipynb` | Coastal/inland and engineered-logistic baselines plus random scenario-reduction checks |
+| `notebooks/` | Narrative research notebooks with saved tables, figures, interpretation, and conclusions |
+| `src/hurricane_resilience/` | Reusable data, feature, modeling, scenario, optimization, evaluation, and plotting implementation |
+| `scripts/run_full_pipeline.py` | Command-line entry point for validation and optional ordered notebook execution |
+| `tests/` | Lightweight regression tests for data loading, CVaR, and scenario weights |
 | `results/figures/` | Curated figures aligned with the latest manuscript framing |
 | `results/tables/` | Current result tables used by the public project summary |
 | `DATA_SOURCES.md` | Data provenance, attribution, citation, checksum, and redistribution notes |
@@ -61,24 +61,56 @@ The broader conclusion is that the largest decision gain comes from moving beyon
 | `scripts/validate_repository.py` | Lightweight repository and notebook validation |
 | `VALIDATION_REPORT.txt` | Validation result generated before packaging |
 | `CODEX_INSTRUCTIONS.md` | Instructions for publishing and polishing the repository with Codex |
-| root-level CSV files | Minimum processed inputs required by the current notebook path logic |
+| root-level CSV files | Curated processed inputs required to inspect or reproduce the published workflow |
 
 ## Recommended run order
 
 The notebook numbers reflect the research history. For a clean full rerun, use this order:
 
-1. Run `01_data_and_ml_pipeline.ipynb`.
-2. Run Phases 1 and 2 in `04_interpretable_baselines_and_scenario_checks.ipynb` to generate the interpretable-baseline risk matrices and random scenario diagnostic.
-3. Run `02_optimization_and_evaluation.ipynb`, including its final conference-extension and full-464 evaluation sections.
-4. Run `03_robustness_and_sensitivity.ipynb`.
+1. Read `notebooks/01_data_and_ml_pipeline.ipynb` for data construction, prediction, calibration, and scenario construction.
+2. Read `notebooks/04_interpretable_baselines_and_scenario_checks.ipynb` for the interpretable baselines and scenario diagnostics needed by the comparison.
+3. Read `notebooks/02_optimization_and_evaluation.ipynb` for the two-stage CVaR model, Pareto designs, and full-scenario evaluation.
+4. Read `notebooks/03_robustness_and_sensitivity.ipynb` for temporal, threshold, scenario, and parameter robustness checks.
 
-Launch Jupyter from the repository root so that `Path.cwd()` resolves correctly:
+Launch Jupyter from the repository root. Each notebook resolves the project root with `pathlib`, adds `src/` to its import path, and uses project-relative data and output paths:
 
 ```bash
 jupyter lab
 ```
 
 The notebooks load saved result tables when possible. Recomputing optimization outputs requires a working Gurobi installation and license.
+
+## Command-line reproduction
+
+Install the package in editable mode, run tests, and validate the curated public results without recomputing them:
+
+```bash
+pip install -e .
+python -m unittest discover -s tests
+python scripts/run_full_pipeline.py
+```
+
+To execute all four notebooks in the approved order, explicitly acknowledge the Gurobi requirement:
+
+```bash
+python scripts/run_full_pipeline.py --execute-notebooks --allow-gurobi
+```
+
+This second route may invoke licensed optimization solves. The default command deliberately validates the published artifacts without overwriting or recomputing approved research results.
+
+## Python package structure
+
+```text
+src/hurricane_resilience/
+├── data.py             # CSV/IBTrACS and event-node data access
+├── features.py         # feature/target construction
+├── risk_models.py      # preprocessing, model families, calibration metrics
+├── scenarios.py        # scenario reduction and weight validation
+├── optimization.py     # Gurobi availability, settings, input contracts
+├── evaluation.py       # weighted CVaR and nondominated-front extraction
+├── visualization.py    # consistent project-relative figure output
+└── paths.py            # pathlib-based repository paths
+```
 
 ## Installation
 
@@ -104,7 +136,7 @@ The underlying hurricane-track data come from the **International Best Track Arc
 - **Recorded source-file date:** May 29, 2026 (from the archived local file metadata)
 - **Archived raw-file SHA-256:** `9df93cf1908027c18c0d7ffd701bf62870bb71254a833f6ebec567f2cc87dd75`
 
-The original raw CSV is intentionally **not redistributed** in this repository. To rebuild the event-node dataset from source, download the Version 4r01 North Atlantic CSV from the official NOAA/NCEI page, save it as `ibtracs_NA.csv` in the repository root, and rerun Notebook 01. The checksum above identifies the exact local raw file used in the archived project, even though that file is not published here.
+The original raw CSV is intentionally **not redistributed** in this repository. Open the official NOAA/NCEI access page, choose Version 4r01 CSV data and the North Atlantic (`NA`) basin subset, then save the downloaded file as `ibtracs_NA.csv` in the repository root. Run `notebooks/01_data_and_ml_pipeline.ipynb` to rebuild the event-node data. The checksum above identifies the exact archived source file, even though it is not published here.
 
 The project filters and transforms the public storm-track records into an event-node dataset for a 14-node stylized supply-chain network. The exposure label is constructed from storm-to-node distance and wind-speed thresholds; it is a physical hazard proxy rather than an observed business-disruption label.
 
