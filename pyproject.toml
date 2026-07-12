@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "hurricane-resilience"
 version = "0.1.0"
 description = "Reusable implementation for hurricane-resilient supply-chain research"
+authors = [{ name = "Xiaorui Zhao" }]
 requires-python = ">=3.10"
 dependencies = ["numpy", "pandas", "scikit-learn", "matplotlib"]
 
