@@ -1,5 +1,8 @@
 # Do Complex Machine-Learning Risk Models Improve Hurricane-Resilient Supply Chain Design?
 
+[![Validate repository](https://github.com/Evelyn-R7/hurricane-resilient-supply-chain/actions/workflows/validate.yml/badge.svg)](https://github.com/Evelyn-R7/hurricane-resilient-supply-chain/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 **A comparative decision study of hurricane exposure risk representations**
 
 This research project examines whether more complex hurricane-risk models improve downstream supply-chain network decisions. It combines leakage-controlled machine learning, scenario reduction, and a two-stage stochastic mixed-integer optimization model with Conditional Value-at-Risk (CVaR).
@@ -55,12 +58,11 @@ The broader conclusion is that the largest decision gain comes from moving beyon
 | `results/figures/` | Curated figures aligned with the latest manuscript framing |
 | `results/tables/` | Current result tables used by the public project summary |
 | `DATA_SOURCES.md` | Data provenance, attribution, citation, checksum, and redistribution notes |
+| `THIRD_PARTY_NOTICES.md` | Scope of the MIT License and third-party terms |
 | `CITATION.cff` | GitHub-compatible citation metadata for this research repository |
 | `START_HERE_CN.md` | Chinese handoff guide for publishing with Codex |
 | `REPRODUCIBILITY.md` | Full and solver-free reproduction routes |
 | `scripts/validate_repository.py` | Lightweight repository and notebook validation |
-| `VALIDATION_REPORT.txt` | Validation result generated before packaging |
-| `CODEX_INSTRUCTIONS.md` | Instructions for publishing and polishing the repository with Codex |
 | root-level CSV files | Curated processed inputs required to inspect or reproduce the published workflow |
 
 ## Recommended run order
@@ -172,4 +174,6 @@ The same check runs automatically through GitHub Actions after the repository is
 
 ## License
 
-No software license has been selected. The code and derived materials are shared for portfolio and research demonstration. Select a license only after deciding what forms of reuse you want to permit.
+Original code and documentation authored for this project are released under the [MIT License](LICENSE).
+
+The MIT License does **not** relicense NOAA/NCEI IBTrACS data, Gurobi, Python dependencies, or any other third-party material. Those resources remain governed by their original providers' licenses and terms. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and [DATA_SOURCES.md](DATA_SOURCES.md) for scope, attribution, citations, and access instructions.
